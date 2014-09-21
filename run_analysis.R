@@ -1,7 +1,7 @@
 
 ## Set your working directory below
 
-setwd("D:\\Data Science\\ExtractingData\\Course Project\\getdata_projectfiles_UCI HAR Dataset\\UCI HAR Dataset");
+setwd("G:\\Data Science\\Extractingdata\\data\\UCI HAR Dataset");
 
 ## Merge Trainng and Test data sets below
 
@@ -45,18 +45,40 @@ activity_data <- data.frame(cut(combine_y[,1],breaks=6,labels=activity_names[,2]
 ## Changing column names
 names(filtered_x) <- c(column_names);
 names(sub_total) <- c("Subject");
-names(acitivity_data) <- c("Activity");
+names(activity_data) <- c("Activity");
 
 ##Prepare Tidy Data
 
-tmp1 <- cbind(sub_total,filtered_x);
-
-tidy_data <- cbind(tmp1,activity_data);
+tidy_data <- cbind(sub_total,activity_data,filtered_x);
 
 
 
 
 
+
+## Prepare second data set based on Tidy Data
+
+dim_tidy <- dim(tidy_data);
+
+
+for(i in 3:dim_tidy[2]-2) {
+ 
+    print(i)
+  tmpData <- aggregate(tidy_data[i+2],by=tidy_data[c("Subject","Activity")],FUN=mean);  
+  if(i==1) {
+    res_data <- tmpData[,1:2];
+    
+  }
+  
+  res_data <- cbind(res_data,tmpData[,3]);
+  
+}
+colnames(res_data) <- colnames(tidy_data);
+
+
+## Prepare Final Output below
+
+write.table(res_data,file="tidayData.txt",row.names=FALSE);
 
 
 

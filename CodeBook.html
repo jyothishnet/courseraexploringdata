@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Code Book for Tidy Data Set</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Code Book for Tidy Data Set</h1>
+
+<h2>Data Source</h2>
+
+<p>Original dataset is derived from the &ldquo;Human Activity Recognition Using Smartphones Data Set&rdquo; which is here: <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<h2>Selection of Variables</h2>
+
+<p>Raw data available is filtered with mean,std value of the parameters available. Total 77 variables are found in the final output and details can be found in below section</p>
+
+<h3>Subject and Activity</h3>
+
+<p>Subject: It&#39;s unique subject which was used in the experiment. It&#39;s value ranges between 1 to 30</p>
+
+<p>Activity: It represnts the activity name</p>
+
+<ul><li>Walking</li><li>Walking Upstairs</li><li>Walking Downstairs</li><li>Sitting</li>
+<li>Standing</li><li>Laying</li></ul>
+
+<h3>Features</h3>
+
+<p>Features are chosen by taking the average of selected feature varibles by Subject and Activity</p>
+
+<p>&ldquo;Subject&rdquo;                       &ldquo;Activity&rdquo;                      &ldquo;TBODY_ACC_MEAN_X&rdquo;<br/>
+ &ldquo;TBODY_ACC_MEAN_Y&rdquo;              &ldquo;TBODY_ACC_MEAN_Z&rdquo;              &ldquo;TBODY_ACC_STD_X&rdquo;<br/>
+ &ldquo;TBODY_ACC_STD_Y&rdquo;               &ldquo;TBODY_ACC_STD_Z&rdquo;               &ldquo;TGRAVITY_ACC_MEAN_X&rdquo;<br/>
+ &ldquo;TGRAVITY_ACC_MEAN_Y&rdquo;           &ldquo;TGRAVITY_ACC_MEAN_Z&rdquo;           &ldquo;TGRAVITY_ACC_STD_X&rdquo;<br/>
+ &ldquo;TGRAVITY_ACC_STD_Y&rdquo;            &ldquo;TGRAVITY_ACC_STD_Z&rdquo;            &ldquo;TBODY_ACC_JERK_MEAN_X&rdquo;<br/>
+ &ldquo;TBODY_ACC_JERK_MEAN_Y&rdquo;         &ldquo;TBODY_ACC_JERK_MEAN_Z&rdquo;         &ldquo;TBODY_ACC_JERK_STD_X&rdquo;<br/>
+ &ldquo;TBODY_ACC_JERK_STD_Y&rdquo;          &ldquo;TBODY_ACC_JERK_STD_Z&rdquo;          &ldquo;TBODY_GYRO_MEAN_X&rdquo;<br/>
+ &ldquo;TBODY_GYRO_MEAN_Y&rdquo;             &ldquo;TBODY_GYRO_MEAN_Z&rdquo;             &ldquo;TBODY_GYRO_STD_X&rdquo;<br/>
+ &ldquo;TBODY_GYRO_STD_Y&rdquo;              &ldquo;TBODY_GYRO_STD_Z&rdquo;              &ldquo;TBODY_GYRO_JERK_MEAN_X&rdquo;<br/>
+ &ldquo;TBODY_GYRO_JERK_MEAN_Y&rdquo;        &ldquo;TBODY_GYRO_JERK_MEAN_Z&rdquo;        &ldquo;TBODY_GYRO_JERK_STD_X&rdquo;<br/>
+ &ldquo;TBODY_GYRO_JERK_STD_Y&rdquo;         &ldquo;TBODY_GYRO_JERK_STD_Z&rdquo;         &ldquo;TBODY_ACC_MAG_MEAN&rdquo;<br/>
+ &ldquo;TBODY_ACC_MAG_STD&rdquo;             &ldquo;TGRAVITY_ACC_MAG_MEAN&rdquo;         &ldquo;TGRAVITY_ACC_MAG_STD&rdquo;<br/>
+ &ldquo;TBODY_ACC_JERK_MEAN&rdquo;           &ldquo;TBODY_ACC_JERK_STD&rdquo;            &ldquo;TBODY_GYRO_JERK_MAG_MEAN&rdquo;<br/>
+ &ldquo;TBODY_GYRO_JERK_MAG_STD&rdquo;       &ldquo;FBODY_ACC_MEAN_X&rdquo;              &ldquo;FBODY_ACC_MEAN_Y&rdquo;<br/>
+ &ldquo;FBODY_ACC_MEAN_Z&rdquo;              &ldquo;FBODY_ACC_STD_X&rdquo;               &ldquo;FBODY_ACC_STD_Y&rdquo;<br/>
+ &ldquo;FBODY_ACC_STD_Z&rdquo;               &ldquo;FBODY_ACC_FREQ_MEAN_X&rdquo;         &ldquo;FBODY_ACC_FREQ_MEAN_Y&rdquo;<br/>
+ &ldquo;FBODY_ACC_FREQ_MEAN_Z&rdquo;         &ldquo;FBODY_ACC_JERK_MEAN_X&rdquo;         &ldquo;FBODY_ACC_JERK_MEAN_Y&rdquo;<br/>
+ &ldquo;FBODY_ACC_JERK_MEAN_Z&rdquo;         &ldquo;FBODY_ACC_JERK_STD_X&rdquo;          &ldquo;FBODY_ACC_JERK_STD_Y&rdquo;<br/>
+ &ldquo;FBODY_ACC_JERK_STD_Z&rdquo;          &ldquo;FBODY_ACC_JERK_FREQ_MEAN_X&rdquo;    &ldquo;FBODY_ACC_JERK_FREQ_MEAN_Y&rdquo;<br/>
+ &ldquo;FBODY_ACC_JERK_FREQ_MEAN_Z&rdquo;    &ldquo;FBODY_GYRO_MEAN_X&rdquo;             &ldquo;FBODY_GYRO_MEAN_Y&rdquo;<br/>
+ &ldquo;FBODY_GYRO_MEAN_Z&rdquo;             &ldquo;FBODY_GYRO_STD_X&rdquo;              &ldquo;FBODY_GYRO_STD_Y&rdquo;<br/>
+ &ldquo;FBODY_GYRO_STD_Z&rdquo;              &ldquo;FBODY_GYRO_FREQ_MEAN_X&rdquo;        &ldquo;FBODY_GYRO_FREQ_MEAN_Y&rdquo;<br/>
+ &ldquo;FBODY_GYRO_FREQ_MEAN_Z&rdquo;        &ldquo;FBODY_ACC_MAG_MEAN&rdquo;            &ldquo;FBODY_ACC_MAG_STD&rdquo;<br/>
+ &ldquo;FBODY_ACC_JERK_MAG_MEAN&rdquo;       &ldquo;FBODY_ACC_JERK_MAG_STD&rdquo;        &ldquo;FBODY_GYRO_MAG_MEAN&rdquo;<br/>
+ &ldquo;FBODY_GYRO_MAG_STD&rdquo;            &ldquo;FBODY_GYRO_MAG_FREQ_MEAN&rdquo;      &ldquo;FBODY_GYRO_JERK_MAG_MEAN&rdquo;<br/>
+ &ldquo;FBODY_GYRO_JERK_MAG_STD&rdquo;       &ldquo;FBODY_GYRO_JERK_MAG_FREQ_MEAN&rdquo;</p>
+
+</body>
+
+</html>
+
